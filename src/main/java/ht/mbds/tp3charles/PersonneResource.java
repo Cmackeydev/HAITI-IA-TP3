@@ -5,12 +5,9 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 
-@Path("/hello-world")
-public class HelloResource {
+@Path("/Personnes/{nom}")
+public class PersonneResource {
     @GET
     @Produces("text/plain")
-    public String hello() {
-        return "Hello, World!";
-    }
+    public String hello(@PathParam("nom") String nom) {return "Hello, " + nom;}
 }
-

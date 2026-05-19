@@ -10,5 +10,8 @@ import jakarta.ws.rs.core.Response;
 public class PersonneResource {
     @GET
     @Produces("text/plain")
-    public Response hello(@PathParam("nom") String nom) {return Response.ok("Hello, " + nom).build();}
+    public Response hello(@PathParam("nom") String nom) {
+        //return Response.ok("Hello, " + nom).build();
+        return Response.serverError().build();
+    }
 }

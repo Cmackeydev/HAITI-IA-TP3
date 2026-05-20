@@ -19,6 +19,14 @@ public class GuideTouristiqueResource {
     private LlmClientPourGemini llmClient;
 
     @GET
+    @Path("/lieu/{lieu}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonObject endroitsDeVisite(@PathParam("lieu") String lieu) {
+        String reponseJson = llmClient.chat(lieu, 2);
+        return Json.createReader(new StringReader(reponseJson)).readObject();
+    }
+
+    @GET
     @Path("/lieu/{lieu}/{nb}")
     @Produces(MediaType.APPLICATION_JSON)
     public JsonObject endroitsDeVisite(@PathParam("lieu") String lieu, @PathParam("nb") int nb) {
